@@ -1,0 +1,156 @@
+ <!-- code by:Nidhi Singh -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project</title>
+<link rel="stylesheet" type="text/css" href="effects.css">
+<script>
+function check()
+ {//email test
+  var x = document.getElementById("email").value;
+ 
+    var r= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+if (r.test(x))
+{document.getElementById("secondPrompt").style.color="Green";
+document.getElementById("secondPrompt").innerHTML="valid"
+return true;
+}
+else
+
+{document.getElementById("secondPrompt").style.color="Red";
+document.getElementById("secondPrompt").innerHTML="Please enter a valid email"
+return false;
+  }
+}
+function check2()
+{ //test xxx-xxx-xxxx
+  var phone= document.getElementById("phoneno").value;
+ 
+    var s=/^\d{3}-\d{3}-\d{4}$/;
+if (s.test(phone))
+{document.getElementById("phonePrompt").style.color="Green";
+document.getElementById("phonePrompt").innerHTML="accepted";
+return (true);}
+else
+{document.getElementById("phonePrompt").style.color="Red";
+document.getElementById("phonePrompt").innerHTML="use xxx-xxx-xxxx";
+return (false);
+  }
+}
+
+function validate()
+{//test for name
+    var t = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    var name = document.getElementById('yourname').value;
+    if(!t.test(name)){
+document.getElementById("firstPrompt").style.color="Red";
+      document.getElementById("firstPrompt").innerHTML="Please enter your full name (first & last name)";
+        return false;
+    }else{
+document.getElementById("firstPrompt").style.color="Green";
+        document.getElementById("firstPrompt").innerHTML="valid";
+        return true;
+    }
+}
+</script>
+
+
+<body>
+<h1 >Design Your Own Cake</h1>
+<img src="cake.png.png" alt="its image of a cake" style="float:right;">
+<form action="#">
+<table border="0">
+  <tr>
+  <td class="label_col">Your Name:</td>
+ <td class="input_col"><input name="yourname" type="text" id="yourname"  onblur="validate();" required ><br></td>
+  <td class="feed_col"><span id="firstPrompt"></span></td>
+
+ 
+     </tr>
+<tr>
+    <td class="label_col">Phone No:</td>
+<td class="input_col"><input name="phoneno" type="text" id="phoneno"  onblur="check2();" placeholder="xxx-xxx-xxxx"><br></td>
+<td class="feed_col"><span id="phonePrompt">xxx-xxx-xxxx</span></td>
+
+
+</tr>
+
+<tr>
+  <td class="label_col">Address:</td>
+ <td class="input_col"><input name="address" type="text" id="address" required><br></td>
+</tr>
+
+
+
+
+<tr>
+
+    <td class="label_col">Email:</td>
+ 
+<td class="input_col"><input name="email" type="text" id="email"  onblur="check();"><br></td>
+<td class="feed_col"><span id="secondPrompt"></span></td>
+</tr>
+
+<tr>
+ 
+    <td class="label_col">Budget:</td>
+<td class="input_col"><input name="budget" type="number" id="budget"  placeholder="0.00" min=
+"200.00" required ><br></td>
+
+</tr>
+
+<tr>
+
+
+    <td class="label_col">Flavour:</td>
+<td class="input_col"><input name="flavour" type="radio"   value="Pineapple" checked>Pineapple <br>
+<input type="radio"  name="flavour" value="Vanilla" >Vanilla  <br>
+<input type="radio"  name="flavour" value="Butterscotch" >Butterscotch <br>
+<input type="radio"  name="flavour" value="Chocolate" >Chocolate <br></td>
+
+</tr>
+<tr>
+
+
+  <td class="label_col">Preffered Toppings:</td>
+<td class="input_col"><input type="checkbox" id="topping1" name="topping1" value="Nuts">Nuts <br>
+  <input type="checkbox" id="topping2" name="topping2" value="Cookies">Cookies<br>
+  <input type="checkbox" id="topping3" name="topping3" value="Choco Chips">Choco Chips <br>
+<input type="checkbox" id="topping4" name="topping4" value="Fruits">Fruits <br>
+  </tr>
+
+<tr>
+
+
+  <td class="label_col">Delivery Date:</td>
+<td class="input_col"><input type="date" required ><br></td>
+</tr>
+
+<tr>
+
+
+  <td class="label_col">Delivery Time:<br><small>(opening hours 1:00 pm to 9:00pm)</small></td>
+<td class="input_col"><input type="time" required  ><br></td>
+</tr>
+
+
+
+</table>
+
+</form>
+<br>
+<br> <br>
+<label for="Additional Info:" style="font-size:20px;">Additional Info:</label><br>
+
+<textarea id="Additional Info:" rows="4" cols="50">
+</textarea>
+
+<p id="he">You can add picture of the style of cake you are upto</p>
+
+<strong>Add a image:</strong><br>
+ <input type="file" id="myfile" name="myfile">
+<br><br>
+  </head>
+</body>
+</html>
